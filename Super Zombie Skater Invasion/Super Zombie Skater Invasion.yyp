@@ -103,6 +103,14 @@
             }
         },
         {
+            "Key": "67440eef-f6e0-4aa0-b279-12f480c64bf8",
+            "Value": {
+                "id": "a6f9ae58-8872-4c93-af5c-06ba8813c14f",
+                "resourcePath": "objects\\obj_bgmanager\\obj_bgmanager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "6fdb7471-1688-4eae-b226-8e4a17176d77",
             "Value": {
                 "id": "e7a9d217-c3bd-4edc-8baa-6f256402b8ad",
@@ -252,6 +260,14 @@
                 "id": "91ebb718-fc7e-459d-a68e-415f0c573f4c",
                 "resourcePath": "views\\c2e4e439-c2e4-4b0c-abf5-0132dad253d7.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c38d5fcd-9623-4dcc-92a8-284863a47d3a",
+            "Value": {
+                "id": "7d35bd5d-86cf-4a10-adfc-af92b088f69a",
+                "resourcePath": "objects\\obj_cam\\obj_cam.yy",
+                "resourceType": "GMObject"
             }
         },
         {

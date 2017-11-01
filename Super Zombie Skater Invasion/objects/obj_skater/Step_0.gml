@@ -8,8 +8,12 @@ key_jump_release = keyboard_check_released(vk_space);
 key_skate_released = (keyboard_check_released(vk_left) || keyboard_check_released(vk_right));
 grounded = place_meeting(x,y+1,obj_wall);
 
-hsp = (key_right - key_left) * skateSpd;
-vsp += grv;
+// Acceleration
+var spd_wanted = 0;
+
+speed_y += yAccel;
+spd_wanted = (key_right - key_left) * skateSpdMax;
+
 
 
 // Handle Animation
@@ -44,7 +48,7 @@ switch(animState)
 	case ANIM_JUMP:
 		if(grounded)
 		{
-			if(hsp != 0) {
+			if(spd_wanted != 0) {
 				animState = ANIM_SKATE;
 				sprite_index = spr_skater;
 			} else {
@@ -54,9 +58,15 @@ switch(animState)
 		}
 	break;
 	case ANIM_CROUCH:
+		jumpImpulse += jumpImpulseInc;
+		if(jumpImpulse <= jumpSpd) 
+		{
+			jumpImpulse = jumpSpd;
+		}
 		if(key_jump_release)
 		{
-			vsp += jmpSpd;
+			speed_y = jumpImpulse;
+			jumpImpulse = jumpImpulseMin;
 			animState = ANIM_JUMP;
 			sprite_index = spr_skaterjump;
 		}
@@ -71,32 +81,41 @@ switch(animState)
 	break;
 }
 
+speed_x += (spd_wanted - speed_x) * xAccel;
+
+var ysp = round(speed_y);
+var xsp = round(speed_x);
+
 
 
 // Collisions
-if(place_meeting(x + hsp, y, obj_wall)) {
-	while(!place_meeting(x + sign(hsp), y, obj_wall))
+if(place_meeting(x + xsp, y, obj_wall)) {
+	while(!place_meeting(x + sign(xsp), y, obj_wall))
 	{
-		x += sign(hsp);
+		x += sign(xsp);
 	}
-	hsp = 0;
+	xsp = 0;
+	speed_x = 0;
 }
 
-if(place_meeting(x, y + vsp, obj_wall)) {
-	while(!place_meeting(x, y + sign(vsp), obj_wall))
+if(place_meeting(x, y + ysp, obj_wall)) {
+	while(!place_meeting(x, y + sign(ysp), obj_wall))
 	{
-		y += sign(vsp);
+		y += sign(ysp);
 	}
-	vsp = 0;
+	ysp = 0;
+	speed_y = 0;
 }
 
 
 // Update position
-x += hsp;
-y += vsp;
+x += xsp;
+y += ysp;
 
+deltaX = x - lastX;
+lastX = x;
 // Check direction
-image_xscale = sign(hsp);
+image_xscale = sign(xsp);
 if(image_xscale == 0) 
 {
 	image_xscale = lastDir;

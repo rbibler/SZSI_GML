@@ -15,12 +15,19 @@ ANIM_SLAM = 7;
 animState = 0;
 
 // Movement variables
-hsp = 0;
-vsp = 0;
+speed_x = 0;
+speed_y = 0;
 lastDir = 1;
+
+deltaX = 0;
+lastX = 0;
 
 
 // Movement constants
-skateSpd = 3;
-grv = 0.9;
-jmpSpd = -13;
+skateSpdMax = 7;
+xAccel = 0.2;
+yAccel = 0.9;
+jumpSpd = -13;
+jumpImpulseInc = -0.5;
+jumpImpulse = -5;
+jumpImpulseMin = -5;
