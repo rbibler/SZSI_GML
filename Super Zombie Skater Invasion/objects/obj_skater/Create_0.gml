@@ -24,7 +24,7 @@ lastX = 0;
 
 
 // Movement constants
-skateSpdMax = 7;
+skateSpdMax = 5;
 xAccel = 0.2;
 yAccel = 0.9;
 jumpSpd = -13;
