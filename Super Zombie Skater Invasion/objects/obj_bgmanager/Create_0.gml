@@ -3,4 +3,14 @@
 
 //cam = obj_cam;
 follow = obj_cam;
-bg_skyScroll = 0.01;
+closeScroll = 6;
+midScroll = 3;
+skyScroll = 1;
+
+
+
+closeLayer = layer_get_id("bg_closeLayer");
+midLayer = layer_get_id("bg_midLayer");
+skyLayer = layer_get_id("bg_skyLayer");
+
+window_set_size(1024, 512);

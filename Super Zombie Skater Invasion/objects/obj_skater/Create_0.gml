@@ -31,3 +31,10 @@ jumpSpd = -13;
 jumpImpulseInc = -0.5;
 jumpImpulse = -5;
 jumpImpulseMin = -5;
+
+currentStep = 0;
+landingStep = 0;
+groundedLast = false;
+
+// Collision attributes
+colTiles = layer_tilemap_get_id("collision_tiles");

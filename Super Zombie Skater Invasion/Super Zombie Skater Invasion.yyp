@@ -63,14 +63,6 @@
             }
         },
         {
-            "Key": "2b309cfc-48b9-494f-950e-37fa449d9b91",
-            "Value": {
-                "id": "b43ce5fd-5861-43c0-a9ed-0e5e85802d13",
-                "resourcePath": "objects\\obj_wall\\obj_wall.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "366fbbcf-23a1-4ce8-b54e-68d516c3eab6",
             "Value": {
                 "id": "027bb6b8-9972-431c-9c10-db0c32aa9726",
@@ -260,6 +252,14 @@
                 "id": "91ebb718-fc7e-459d-a68e-415f0c573f4c",
                 "resourcePath": "views\\c2e4e439-c2e4-4b0c-abf5-0132dad253d7.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c32c47d2-9708-43da-978d-883992a1e6e2",
+            "Value": {
+                "id": "b195b1e9-5c0c-476e-89ec-3b53503feb9f",
+                "resourcePath": "tilesets\\tileset1\\tileset1.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {

@@ -2,7 +2,9 @@
 // You can write your code in this editor
 
 var camX = camera_get_view_x(view_camera[0]);
-var skyX = camX / 1.05;
-var midX = camX / 1.75;
-layer_x("bg_skyLayer", skyX);
-layer_x("bg_midLayer", midX);
+var closeX = camX / closeScroll;
+var midX = camX / midScroll;
+var skyX = camX / skyScroll;
+layer_x(closeLayer, closeX);
+layer_x(midLayer, midX);
+layer_x(skyLayer, skyX);

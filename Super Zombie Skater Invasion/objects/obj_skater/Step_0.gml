@@ -1,19 +1,23 @@
 /// @description Insert description here
 // You can write your code in this editor
+var bbox_side;
 
 key_left = keyboard_check(vk_left);
 key_right = keyboard_check(vk_right);
 key_jump = keyboard_check(vk_space);
 key_jump_release = keyboard_check_released(vk_space);
 key_skate_released = (keyboard_check_released(vk_left) || keyboard_check_released(vk_right));
-grounded = place_meeting(x,y+1,obj_wall);
-
+grounded = tilemap_get_at_pixel(colTiles,x,bbox_bottom + 1);
+if(grounded && !groundedLast) 
+{
+	landingStep = currentStep		
+}
+groundedLast = grounded;
 // Acceleration
 var spd_wanted = 0;
 
 speed_y += yAccel;
 spd_wanted = (key_right - key_left) * skateSpdMax;
-
 
 
 // Handle Animation
@@ -58,13 +62,24 @@ switch(animState)
 		}
 	break;
 	case ANIM_CROUCH:
-		jumpImpulse += jumpImpulseInc;
-		if(jumpImpulse <= jumpSpd) 
+		if(key_jump) 
 		{
-			jumpImpulse = jumpSpd;
+			jumpImpulse += jumpImpulseInc;
+			if(jumpImpulse <= jumpSpd) 
+			{
+				jumpImpulse = jumpSpd;
+			}
 		}
 		if(key_jump_release)
 		{
+			if(currentStep - landingStep <= 5)
+			{
+				jumpImpulse += (jumpSpd * .5);
+				if(jumpImpulse <= jumpSpd) 
+				{
+					jumpImpulse = jumpSpd;
+				}
+			}
 			speed_y = jumpImpulse;
 			jumpImpulse = jumpImpulseMin;
 			animState = ANIM_JUMP;
@@ -86,26 +101,51 @@ speed_x += (spd_wanted - speed_x) * xAccel;
 var ysp = round(speed_y);
 var xsp = round(speed_x);
 
+currentStep++;
 
+if(xsp > 0) 
+{
+	bbox_side = bbox_right;
+} else 
+{
+	bbox_side = bbox_left;
+}
 
-// Collisions
-if(place_meeting(x + xsp, y, obj_wall)) {
-	while(!place_meeting(x + sign(xsp), y, obj_wall))
+if(tilemap_get_at_pixel(colTiles,bbox_side+xsp,bbox_top) != 0) || (tilemap_get_at_pixel(colTiles,bbox_side+xsp,bbox_bottom) != 0)
+{
+	if(xsp > 0)
 	{
-		x += sign(xsp);
+		x = x - (x % 16) + 15 - (bbox_right - x);
+	} else
+	{
+		x = x - (x % 16) - (bbox_left - x);
 	}
 	xsp = 0;
 	speed_x = 0;
 }
 
-if(place_meeting(x, y + ysp, obj_wall)) {
-	while(!place_meeting(x, y + sign(ysp), obj_wall))
+if(ysp > 0) 
+{
+	bbox_side = bbox_bottom;
+} else 
+{
+	bbox_side = bbox_top;
+}
+
+if(tilemap_get_at_pixel(colTiles,bbox_left,bbox_side+ysp) != 0) || (tilemap_get_at_pixel(colTiles,bbox_right,bbox_side+ysp) != 0)
+{
+	if(ysp > 0)
 	{
-		y += sign(ysp);
+		y = y - (y % 16) + 15 - (bbox_bottom - y);
+	} else
+	{
+		y = y - (y % 16) - (bbox_top - y);
 	}
 	ysp = 0;
 	speed_y = 0;
 }
+
+
 
 
 // Update position
