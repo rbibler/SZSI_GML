@@ -19,22 +19,34 @@ speed_x = 0;
 speed_y = 0;
 lastDir = 1;
 
+xsp_fraction = 0;
+ysp_fraction = 0;
+
 deltaX = 0;
 lastX = 0;
 
 
+jmp_inc_table[0] = -0.5;
+jmp_inc_table[1] = -0.25;
+jmp_inc_table[2] = -0.125;
+jmp_inc_table[3] = -0.075;
+jmp_inc_table_length = 8;
 // Movement constants
-skateSpdMax = 5;
-xAccel = 0.2;
-yAccel = 0.9;
-jumpSpd = -13;
-jumpImpulseInc = -0.5;
-jumpImpulse = -5;
-jumpImpulseMin = -5;
+skateSpdMax = 5.25;
+xAccel = 0.45;
+yAccel = .925;
+jumpSpd = -16;
+
+jumpImpulseInc = -.75;
+jumpImpulse = -10;
+jumpImpulseMin = -10;
+can_wall_jump = 0;
+wall_jmp_direction = 0;
+jmp_count = 1;
 
 currentStep = 0;
 landingStep = 0;
 groundedLast = false;
-
+crouch_count = 0;
 // Collision attributes
 colTiles = layer_tilemap_get_id("collision_tiles");

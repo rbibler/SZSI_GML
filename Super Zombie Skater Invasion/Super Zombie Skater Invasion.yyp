@@ -119,6 +119,14 @@
             }
         },
         {
+            "Key": "76eac9e9-52e3-4a43-a7ed-8ec6e6e3a22b",
+            "Value": {
+                "id": "93d1316c-2c87-4fc4-b95d-35064554fa0b",
+                "resourcePath": "objects\\obj_init\\obj_init.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7c38763a-1dc1-4748-92f9-ffc6f37a3258",
             "Value": {
                 "id": "f0c6b44c-fc48-442c-92ec-16acd521a31a",
@@ -140,6 +148,14 @@
                 "id": "cd6a6743-4d43-4746-8fda-a8663394b7bd",
                 "resourcePath": "sprites\\spr_skaterslam\\spr_skaterslam.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8b6684f5-2f99-46cc-83dd-7fecb134e2c1",
+            "Value": {
+                "id": "cc128e84-cf51-455e-8d3e-fec900221fb9",
+                "resourcePath": "scripts\\InFloor\\InFloor.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -255,19 +271,19 @@
             }
         },
         {
-            "Key": "c32c47d2-9708-43da-978d-883992a1e6e2",
-            "Value": {
-                "id": "b195b1e9-5c0c-476e-89ec-3b53503feb9f",
-                "resourcePath": "tilesets\\tileset1\\tileset1.yy",
-                "resourceType": "GMTileSet"
-            }
-        },
-        {
             "Key": "c38d5fcd-9623-4dcc-92a8-284863a47d3a",
             "Value": {
                 "id": "7d35bd5d-86cf-4a10-adfc-af92b088f69a",
                 "resourcePath": "objects\\obj_cam\\obj_cam.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c5c7ffa7-ee22-419a-8868-57fcfcea9908",
+            "Value": {
+                "id": "31c7e809-d990-4e10-94c0-77cfc97bcae7",
+                "resourcePath": "tilesets\\tCollision\\tCollision.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
@@ -335,6 +351,14 @@
             }
         },
         {
+            "Key": "ea719120-d4a5-48d9-902e-71f334bf7c53",
+            "Value": {
+                "id": "9f25fb35-b3e7-4a63-ac01-973bcfd96987",
+                "resourcePath": "sprites\\spr_colTiles\\spr_colTiles.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "fa55f96f-75d0-42ce-9699-201e7c5a225a",
             "Value": {
                 "id": "904a2742-9418-4242-a5a4-829b5ffd821f",
@@ -352,7 +376,7 @@
         }
     ],
     "script_order": [
-        
+        "8b6684f5-2f99-46cc-83dd-7fecb134e2c1"
     ],
     "tutorial": ""
 }

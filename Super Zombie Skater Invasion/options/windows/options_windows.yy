@@ -15,11 +15,11 @@
     "option_windows_icon": "${base_options_dir}\\windows\\icons\\icon.ico",
     "option_windows_installer_finished": "${base_options_dir}\\windows\\installer\\finished.bmp",
     "option_windows_installer_header": "${base_options_dir}\\windows\\installer\\header.bmp",
-    "option_windows_interpolate_pixels": false,
+    "option_windows_interpolate_pixels": true,
     "option_windows_license": "${base_options_dir}\\windows\\installer\\license.txt",
     "option_windows_nsis_file": "${base_options_dir}\\windows\\installer\\nsis_script.nsi",
     "option_windows_product_info": "Made in GameMaker Studio 2",
-    "option_windows_resize_window": false,
+    "option_windows_resize_window": true,
     "option_windows_save_location": 0,
     "option_windows_scale": 0,
     "option_windows_sleep_margin": 10,
@@ -33,5 +33,5 @@
         "minor": 0,
         "revision": 0
     },
-    "option_windows_vsync": false
+    "option_windows_vsync": true
 }
